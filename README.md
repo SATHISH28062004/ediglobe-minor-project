@@ -1,0 +1,1 @@
+# ediglobe-minor-project

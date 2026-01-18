@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Exception Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Delivery Exception Management Dashboard</h1>
+            <p class="subtitle">GreyAtom Logistics - Operations Tools</p>
+        </header>
+
+        <section class="stats-section">
+            <div class="stat-card">
+                <span class="stat-label">Open Issues</span>
+                <span class="stat-value" id="openCount">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Resolved Issues</span>
+                <span class="stat-value" id="resolvedCount">0</span>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Report Delivery Exception</h2>
+            <form id="exceptionForm">
+                <div class="form-group">
+                    <label for="deliveryId">Delivery ID <span class="required">*</span></label>
+                    <input type="text" id="deliveryId" name="deliveryId" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerName">Customer Name <span class="required">*</span></label>
+                    <input type="text" id="customerName" name="customerName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="issueType">Issue Type <span class="required">*</span></label>
+                    <select id="issueType" name="issueType" required>
+                        <option value="">Select Issue Type</option>
+                        <option value="Address Not Found">Address Not Found</option>
+                        <option value="Customer Not Available">Customer Not Available</option>
+                        <option value="Payment Issue">Payment Issue</option>
+                        <option value="Package Damaged">Package Damaged</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Priority <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="priority" value="Low" required>
+                            <span>Low</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="priority" value="Medium" required>
+                            <span>Medium</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="priority" value="High" required>
+                            <span>High</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Exception</button>
+            </form>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Exceptions Dashboard</h2>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filterIssueType">Filter by Issue Type:</label>
+                    <select id="filterIssueType">
+                        <option value="">All Types</option>
+                        <option value="Address Not Found">Address Not Found</option>
+                        <option value="Customer Not Available">Customer Not Available</option>
+                        <option value="Payment Issue">Payment Issue</option>
+                        <option value="Package Damaged">Package Damaged</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterStatus">Filter by Status:</label>
+                    <select id="filterStatus">
+                        <option value="">All Status</option>
+                        <option value="Open">Open</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="exceptionsTable">
+                    <thead>
+                        <tr>
+                            <th>Delivery ID</th>
+                            <th>Customer Name</th>
+                            <th>Issue Type</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Table rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
